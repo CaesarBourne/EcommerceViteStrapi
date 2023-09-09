@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import "./App.css";
+import "./index.css";
 import { BrowserRouter, Route, useLocation, Routes } from "react-router-dom";
-
+import Home from "./scenes/home/Home";
+import ItemDetails from "./scenes/itemDetails/itemDetails";
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -15,7 +16,11 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>{/* <Route path="/" element={<Home />} /> */}</Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="item/:itemId" element={<ItemDetails />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
