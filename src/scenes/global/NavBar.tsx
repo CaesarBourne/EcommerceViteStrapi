@@ -32,7 +32,52 @@ const NavBar = () => {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-      ></Box>
+      >
+        <Box
+          onClick={() => navigate("/")}
+          sx={{ "&:hover": { cursor: "pointer" } }}
+          color={shades.secondary[500]}
+        >
+          Ecomer
+        </Box>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          columnGap="20px"
+          zIndex="2"
+        >
+          <IconButton sx={{ color: "black" }}>
+            <SearchOutlined />
+          </IconButton>
+          <IconButton sx={{ color: "black" }}>
+            <PersonOutline />
+          </IconButton>
+          <Badge
+            // badgeContent={cart.length}
+            color="secondary"
+            // invisible={cart.length === 0}
+            sx={{
+              "& .MuiBadge-badge": {
+                right: 5,
+                top: 5,
+                padding: "0 4px",
+                height: "14px",
+                minWidth: "13px",
+              },
+            }}
+          >
+            <IconButton
+              // onClick={() => dispatch(setIsCartOpen({}))}
+              sx={{ color: "black" }}
+            >
+              <ShoppingBagOutlined />
+            </IconButton>
+          </Badge>
+          <IconButton sx={{ color: "black" }}>
+            <MenuOutlined />
+          </IconButton>
+        </Box>
+      </Box>
     </Box>
   );
 };
