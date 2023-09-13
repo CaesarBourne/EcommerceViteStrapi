@@ -1,10 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 type cartType = [id: string];
-type itemType = { id: string };
+type itemType = { id: string; count: number };
 export interface cartItemsType {
   isCartOpen: Boolean;
   cart: cartType;
   items: [];
+}
+interface stateType {
+  isCartOpen: boolean;
+  cart: Array<any>;
+  items: Array<itemType>;
 }
 const initialState = {
   isCartOpen: false,
@@ -26,6 +31,14 @@ export const cartSlice = createSlice({
       state.cart = state.cart.filter(
         (item: itemType) => item.id == action.payload.id
       );
+    },
+    increaseItemCount: (state: stateType, action) => {
+      state.cart = state.cart.map((item: itemType) => {
+        if (item.id == action.payload.id) {
+          item.count++;
+        }
+        return item;
+      });
     },
   },
 });
