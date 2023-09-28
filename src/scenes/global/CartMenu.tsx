@@ -63,6 +63,9 @@ const CartMenu = () => {
             <Typography variant="h3">
               SHOPPING Bag ({cartSliceState.length})
             </Typography>
+            <IconButton onClick={() => dispatch(setIsItemCartOpen({}))}>
+              <CloseIcon />
+            </IconButton>
           </FlexBox>
         </Box>
       </Box>
