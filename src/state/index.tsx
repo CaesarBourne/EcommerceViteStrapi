@@ -51,7 +51,7 @@ export const cartSlice = createSlice({
       });
     },
 
-    setIsItemCartOpen: (state: any) => {
+    setIsItemCartOpen: (state) => {
       state.isCartOpen = !state.isCartOpen;
     },
   },
