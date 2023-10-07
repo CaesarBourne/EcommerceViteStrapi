@@ -14,6 +14,33 @@ const ShoppingList = () => {
   const items = useSelector((state) => state.cart.items);
   const breakPoint = useMediaQuery("(min-width:600px)");
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  async function getItems() {
+    const items = await fetch(
+      "http://localhost:2000/api/items?populate=image",
+      { method: "GET" }
+    );
+    const itemsJson = await items.json();
+    dispatch(setItems(itemsJson.data));
+  }
+
+  useEffect(() => {
+    getItems();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const topRatedItems = items.filter(
+    (item) => item.attributes.category === "topRated"
+  );
+  const newArrivalsItems = items.filter(
+    (item) => item.attributes.category === "newArrivals"
+  );
+  const bestSellersItems = items.filter(
+    (item) => item.attributes.category === "bestSellers"
+  );
+
   return (
     <Box width="80%" margin="80px auto">
       <Typography variant="h3" textAlign="center">
