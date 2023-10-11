@@ -10,7 +10,7 @@ const AddressForm = ({
   errors,
   handleBlur,
   handleChange,
-}: any) => {
+}) => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   // these functions allow for better code readability
@@ -93,6 +93,42 @@ const AddressForm = ({
         error={formattedError("street2")}
         helperText={formattedHelper("street2")}
         sx={{ gridColumn: "span 2" }}
+      />
+      <TextField
+        fullWidth
+        type="text"
+        label="City"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        value={values.city}
+        name={formattedName("city")}
+        error={formattedError("city")}
+        helperText={formattedHelper("city")}
+        sx={{ gridColumn: "span 2" }}
+      />
+      <TextField
+        fullWidth
+        type="text"
+        label="State"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        value={values.state}
+        name={formattedName("state")}
+        error={formattedError("state")}
+        helperText={formattedHelper("state")}
+        sx={{ gridColumn: "1fr" }}
+      />
+      <TextField
+        fullWidth
+        type="text"
+        label="Zip Code"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        value={values.zipCode}
+        name={formattedName("zipCode")}
+        error={formattedError("zipCode")}
+        helperText={formattedHelper("zipCode")}
+        sx={{ gridColumn: "1fr" }}
       />
     </Box>
   );

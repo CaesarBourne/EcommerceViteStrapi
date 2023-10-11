@@ -1,6 +1,5 @@
-import React from "react";
 import { Box, Checkbox, FormControlLabel, Typography } from "@mui/material";
-// import AddressForm from "./AddressForm";
+import AddressForm from "./AddressForm";
 
 const Shipping = ({
   values,
@@ -9,7 +8,7 @@ const Shipping = ({
   handleChange,
   handleBlur,
   setFieldValue,
-}: any) => {
+}) => {
   return (
     <Box m="30px auto">
       {/* BILLING FORM */}
@@ -17,14 +16,14 @@ const Shipping = ({
         <Typography sx={{ mb: "15px" }} fontSize="18px">
           Billing Information
         </Typography>
-        {/* <AddressForm
-        type="billingAddress"
-        values={values.billingAddress}
-        touched={touched}
-        errors={errors}
-        handleBlur={handleBlur}
-        handleChange={handleChange}
-      /> */}
+        <AddressForm
+          type="billingAddress"
+          values={values.billingAddress}
+          touched={touched}
+          errors={errors}
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+        />
       </Box>
 
       <Box mb="20px">
@@ -45,6 +44,7 @@ const Shipping = ({
         />
       </Box>
 
+      {/* SHIPPING FORM */}
       {!values.shippingAddress.isSameAddress && (
         <Box>
           <Typography sx={{ mb: "15px" }} fontSize="18px">
